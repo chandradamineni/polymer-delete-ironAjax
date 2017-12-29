@@ -1,3 +1,16 @@
 <link rel="import" href="../../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../../bower_components/iron-ajax/iron-ajax.html">
 
+<dom-module id="delete-iron-ajax-service">
+
+    <template>
+        <iron-ajax id="delete-IronAjax" 
+        content-type="application/json" 
+        method="delete" 
+        handle-as="json" 
+        on-response="_deletedResponse">
+        </iron-ajax>
+    </template>
+    
+   
+</dom-module>
