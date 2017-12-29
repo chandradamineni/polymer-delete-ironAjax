@@ -1,34 +1,3 @@
 <link rel="import" href="../../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../../bower_components/iron-ajax/iron-ajax.html">
 
-<dom-module id="delete-iron-ajax-service">
-    <template>
-        <iron-ajax id="delete-IronAjax" 
-        content-type="application/json" 
-        method="delete" 
-        handle-as="json" 
-        on-response="_deletedResponse">
-        </iron-ajax>
-    </template>
-    <script>
-        Polymer({
-		    is: 'delete-iron-ajax-service',
-		    properties: {
-		        deletedList: {
-					type: String,
-		            notify: true
-		        }
-    		},
-		    _deletedResponse: function (e) {
-				 var data = e.detail.status;
-				 this.set("deletedList", null);
-				 this.set("deletedList", data);
-		    },
-		    deleteService: function (payload) {
-		        var request = this.$$('#delete-IronAjax');
-		        request.url = "api/v2/"+payload;
-		        request.generateRequest();
-		    }
-		});
-    </script>
-</dom-module>
